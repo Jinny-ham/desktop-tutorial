@@ -1,0 +1,61 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/actionMenuView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <item
+        android:id="@+id/discard"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/raon"
+        android:orderInCategory="100"
+        android:title="Delete"
+        app:showAsAction="always"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <item
+        android:id="@+id/search"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/suri"
+        android:orderInCategory="100"
+        android:title="Search"
+        app:showAsAction="always"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+        <item
+            android:id="@+id/settings"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:orderInCategory="100"
+            android:title="Settings"
+            app:showAsAction="never"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="319dp" />
+
+        <item
+            android:id="@+id/edit"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:orderInCategory="100"
+            android:title="Edit"
+            app:showAsAction="never"
+            tools:layout_editor_absoluteX="264dp"
+            tools:layout_editor_absoluteY="319dp" />
+
+        <item
+            android:id="@+id/exit"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:orderInCategory="100"
+            android:title="Exit"
+            app:showAsAction="never"
+            tools:layout_editor_absoluteX="352dp"
+            tools:layout_editor_absoluteY="319dp" />
+</menu>
