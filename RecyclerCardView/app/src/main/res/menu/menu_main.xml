@@ -15,7 +15,7 @@
         android:icon="@drawable/raon"
         android:orderInCategory="100"
         android:title="Delete"
-        app:showAsAction="always"
+        app:showAsAction="never"
         tools:layout_editor_absoluteY="319dp" />
 
     <item
@@ -25,7 +25,7 @@
         android:icon="@drawable/suri"
         android:orderInCategory="100"
         android:title="Search"
-        app:showAsAction="always"
+        app:showAsAction="never"
         tools:layout_editor_absoluteX="88dp"
         tools:layout_editor_absoluteY="319dp" />
 
