@@ -1,4 +1,4 @@
-package com.example.materialdesign;
+package com.example.recyclercardview;
 
 import org.junit.Test;
 
