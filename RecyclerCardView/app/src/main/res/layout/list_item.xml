@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tvTitle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
@@ -20,24 +21,23 @@
             android:layout_height="60dp"
             android:layout_margin="7dp"
             android:contentDescription="Thumbnail"
-            android:src="@drawable/thumb_1_0"/>
-        
+            android:src="@drawable/thumb_1_0" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
-            
+
             <TextView
-                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:text="title"
                 android:textColor="#616161"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
-            
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tvDescprition"
                 android:layout_width="wrap_content"
@@ -45,9 +45,9 @@
                 android:layout_marginLeft="10dp"
                 android:text="Description"
                 android:textSize="15sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic" />
 
-            
+
         </LinearLayout>
 
         <LinearLayout

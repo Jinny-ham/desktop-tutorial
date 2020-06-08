@@ -15,7 +15,6 @@ import com.example.recyclercardview.R;
 import com.example.recyclercardview.model.Landscape;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
@@ -112,7 +111,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.tvTitle);
+            title = (TextView) itemView.findViewById(R.id.title);
             imgThumb = (ImageView) itemView.findViewById(R.id.img_row);
             imgDelete = (ImageView) itemView.findViewById(R.id.img_row_delete);
             imgAdd = (ImageView) itemView.findViewById(R.id.img_row_add);
@@ -152,7 +151,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public MyViewHolder_PRIME(View itemView){
             super(itemView);
 
-            title = itemView.findViewById(R.id.tvTitle);
+            title = itemView.findViewById(R.id.title);
             imgThumb = itemView.findViewById(R.id.img_row);
             imgRowType = itemView.findViewById(R.id.img_row_prime);
         }
@@ -171,7 +170,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public MyViewHolder_NON_PRIME(View itemView){
             super(itemView);
 
-            title = itemView.findViewById(R.id.tvTitle);
+            title = itemView.findViewById(R.id.title);
             imgThumb = itemView.findViewById(R.id.img_row);
             imgRowType = itemView.findViewById(R.id.img_row_not_prime);
         }

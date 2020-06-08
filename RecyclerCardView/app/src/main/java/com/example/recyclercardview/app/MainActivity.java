@@ -2,6 +2,7 @@ package com.example.recyclercardview.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,11 +23,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Home Page");
-        toolbar.inflateMenu(R.menu.menu_main);
-        
+        setUpToolbar();
+        setUpDrawer();
         setUpRecyclerView();
+    }
+
+    private void setUpToolbar(){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Navigation Drawer Demo");
+        toolbar.inflateMenu(R.menu.menu_main);
+    }
+
+    private void setUpDrawer(){
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.nav_drawer_fragment);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        drawerFragment.setUpDrawer(R.id.nav_drawer_fragment, drawerLayout, toolbar);
     }
 
     private void setUpRecyclerView() {
