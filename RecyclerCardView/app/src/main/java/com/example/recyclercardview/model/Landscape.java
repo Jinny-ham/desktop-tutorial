@@ -9,6 +9,7 @@ public class Landscape {
     private int imageID;
     private String title;
     private String description;
+    private boolean prime;
 
     public void setImageID(int imageID) {
         this.imageID = imageID;
@@ -34,20 +35,30 @@ public class Landscape {
         return description;
     }
 
-    public static ArrayList<Landscape> getData(){
+    public static ArrayList<Landscape> getData() {
         ArrayList<Landscape> dataList = new ArrayList<>();
 
         int[] images = getImages();
 
-        for(int i = 0; i < images.length; i++){
+        for (int i = 0; i < images.length; i++) {
             Landscape landscape = new Landscape();
             landscape.setImageID(images[i]);
             landscape.setTitle("Landscape " + i);
+            landscape.setPrime(checkPrime(i));
 
             dataList.add(landscape);
         }
 
         return dataList;
+    }
+
+    private static boolean checkPrime(int position) {
+        if (position == 0 || position == 1) return false;
+
+        for (int i = 2; i <= position / 2; ++i) {
+            if (position % i == 0) return false;
+        }
+        return true;
     }
 
     private static int[] getImages() {
@@ -78,6 +89,14 @@ public class Landscape {
                 R.drawable.thumb_7_0, R.drawable.thumb_7_1, R.drawable.thumb_7_2, R.drawable.thumb_7_3,
                 R.drawable.thumb_7_4};
         return images;
+    }
+
+    public void setPrime(boolean prime) {
+        this.prime = prime;
+    }
+
+    public boolean isPrime() {
+        return prime;
     }
 }
 
