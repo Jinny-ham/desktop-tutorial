@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NoteKeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/NoteKeeper.iml" group="NoteKeeper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NoteKeeper-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NoteKeeper-app.iml" group="NoteKeeper/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="NoteKeeper/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop-tutorial-NoteKeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop-tutorial-NoteKeeper.iml" group="NoteKeeper" />
     </modules>
   </component>
 </project>
