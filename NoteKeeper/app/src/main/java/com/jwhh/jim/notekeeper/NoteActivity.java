@@ -47,7 +47,7 @@ public class NoteActivity extends AppCompatActivity {
         mSpinnerCourses.setAdapter(adapterCourses);
 
         readDisplayStateValues();
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             saveOriginalNoteValues();
         } else {
             restoreOriginalNoteValues(savedInstanceState);
@@ -56,7 +56,7 @@ public class NoteActivity extends AppCompatActivity {
         mTextNoteTitle = (EditText) findViewById(R.id.text_note_title);
         mTextNoteText = (EditText) findViewById(R.id.text_note_text);
 
-        if(!mIsNewNote)
+        if (!mIsNewNote)
             displayNote(mSpinnerCourses, mTextNoteTitle, mTextNoteText);
         Log.d(TAG, "onCreate");
     }
@@ -68,7 +68,7 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private void saveOriginalNoteValues() {
-        if(mIsNewNote)
+        if (mIsNewNote)
             return;
         mOriginalNoteCourseId = mNote.getCourse().getCourseId();
         mOriginalNoteTitle = mNote.getTitle();
@@ -78,9 +78,9 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(mIsCancelling) {
+        if (mIsCancelling) {
             Log.i(TAG, "Cancelling note at position: " + mNotePosition);
-            if(mIsNewNote) {
+            if (mIsNewNote) {
                 DataManager.getInstance().removeNote(mNotePosition);
             } else {
                 storePreviousNoteValues();
@@ -124,7 +124,7 @@ public class NoteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mNotePosition = intent.getIntExtra(NOTE_POSITION, POSITION_NOT_SET);
         mIsNewNote = mNotePosition == POSITION_NOT_SET;
-        if(mIsNewNote) {
+        if (mIsNewNote) {
             createNewNote();
         }
 
@@ -160,16 +160,37 @@ public class NoteActivity extends AppCompatActivity {
         } else if (id == R.id.action_cancel) {
             mIsCancelling = true;
             finish();
+        } else if (id == R.id.action_next) {
+            moveNext();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_next);
+        int lastNoteIndex = DataManager.getInstance().getNotes().size() - 1;
+        item.setEnabled(mNotePosition < lastNoteIndex);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void moveNext() {
+        saveNote();
+
+        ++mNotePosition;
+        mNote = DataManager.getInstance().getNotes().get(mNotePosition);
+
+        saveOriginalNoteValues();
+        displayNote(mSpinnerCourses, mTextNoteTitle, mTextNoteText);
+        invalidateOptionsMenu();
     }
 
     private void sendEmail() {
         CourseInfo course = (CourseInfo) mSpinnerCourses.getSelectedItem();
         String subject = mTextNoteTitle.getText().toString();
         String text = "Checkout what I learned in the Pluralsight course \"" +
-                course.getTitle() +"\"\n" + mTextNoteText.getText().toString();
+                course.getTitle() + "\"\n" + mTextNoteText.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("message/rfc2822");
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
